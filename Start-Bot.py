@@ -1,11 +1,15 @@
 import telebot
 import time
-import urllib.requests
+import requests
 
 #You's bot API key
 API_KEY = ''
 #Create an instance for this bot
 bot = telebot.TeleBot(API_KEY)
+
+#Some fuction
+def extract_arg(arg):
+    return arg.split()[1:]
 
 #Bot commands
 ## '/help' Command
@@ -28,12 +32,18 @@ def send_help(message):
 def post_new_cve_info(message):
     bot.send_message(message.chat.id, 'please wait.....')
 
+##
+@bot.message_handler(commands=['search'])
+def yourCommand(message):
+    user_parameter = extract_arg(message.text)
+    str(user_parameter)
+    bot.send_message(message.chat.id, 'Searching please wait.....')
+    URL = 'https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=', user_parameter
+    r = requests.get(URL)
+    bot.send_massage(massage.chat.id, r.text)
+
 
 
 
 #Use a while loop to slove Telegram server kick Bot in an hour
-while True:
-    try:
-        bot.polling()
-    except:
-        time.sleep(15)
+bot.polling()
