@@ -1,6 +1,7 @@
 import telebot
 import time
 import requests
+import re
 
 #You's bot API key
 API_KEY = ''
@@ -17,11 +18,11 @@ def extract_arg(arg):
 def send_help(message):
     help_info ='''使用说明：
     - CVE漏洞查询机器人，用于查询相关CVE漏洞信息和可利用的EXP
-    
+
     命令列表：
     /help    查看帮助
     /evepost 获取每日最新更新的CVE漏洞
-    
+
     更新日志：
     完成'/help'命令的相关信息
     '''
@@ -32,15 +33,19 @@ def send_help(message):
 def post_new_cve_info(message):
     bot.send_message(message.chat.id, 'please wait.....')
 
-##
+##'/search' Command
 @bot.message_handler(commands=['search'])
 def yourCommand(message):
-    user_parameter = extract_arg(message.text)
-    str(user_parameter)
-    bot.send_message(message.chat.id, 'Searching please wait.....')
-    URL = 'https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=', user_parameter
+    parameter = extract_arg(message.text)
+    user_input = "".join(parameter)
+    URL = 'https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword='+ user_input
     r = requests.get(URL)
-    bot.send_massage(massage.chat.id, r.text)
+    web_get = r.text
+    ### Massage to send to user
+    CVE_info = '''
+
+    '''
+    bot.send_message(message.chat.id, CVE_info)
 
 
 
