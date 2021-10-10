@@ -31,7 +31,7 @@ def post_new_cve_info(message):
 
 
 
-###
+#Use a while loop to slove Telegram server kick Bot in an hour
 while True:
     try:
         bot.polling()
