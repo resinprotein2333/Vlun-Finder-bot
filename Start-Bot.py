@@ -43,7 +43,13 @@ def yourCommand(message):
     web_get = r.text
     ### Massage to send to user
     CVE_info = '''
-
+    漏洞编号：{}
+    漏洞来源：{}
+    漏洞NVD分数：{}
+    漏洞描述：
+    {}
+    受影响的软件版本：
+    {}
     '''
     bot.send_message(message.chat.id, CVE_info)
 
