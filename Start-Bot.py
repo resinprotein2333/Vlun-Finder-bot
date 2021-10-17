@@ -48,12 +48,12 @@ def yourCommand(message):
     vlun_type = data["cveTitle"]
     ### Massage to send to user
     CVE_info = f"""
-    CVE Number:{vlun_number}
+    CVE漏洞编号:{vlun_number}
     --------------------------------
-    CVE Type:
+    CVE漏洞类型:
     {vlun_type}
     --------------------------------
-    CVE Info:
+    CVE漏洞信息:
     {vlun_info}"""
     bot.send_message(message.chat.id, CVE_info)
 
