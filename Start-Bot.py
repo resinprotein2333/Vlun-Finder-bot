@@ -1,7 +1,9 @@
 import telebot
 import time
 import requests
-import re
+import json
+import requests
+from bs4 import BeautifulSoup
 
 #You's bot API key
 API_KEY = ''
@@ -20,12 +22,9 @@ def send_help(message):
     - CVE漏洞查询机器人，用于查询相关CVE漏洞信息和可利用的EXP
 
     命令列表：
-    /help    查看帮助
-    /evepost 获取每日最新更新的CVE漏洞
-
-    更新日志：
-    完成'/help'命令的相关信息
-    '''
+    /help               查看帮助
+    /search [CVE ID]    
+    /cvetoday                   '''
     bot.send_message(message.chat.id, help_info)
 
 ## '/cvetoday' Command
@@ -38,23 +37,29 @@ def post_new_cve_info(message):
 def yourCommand(message):
     parameter = extract_arg(message.text)
     user_input = "".join(parameter)
-    URL = 'https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword='+ user_input
-    r = requests.get(URL)
-    web_get = r.text
+    url = ("https://api.msrc.microsoft.com/sug/v2.0/zh-cn/vulnerability/" + user_input)
+    data = requests.get(url).json()
+    ###
+    vlun_number = data["cveNumber"]
+
+    vlun_info = BeautifulSoup(data["description"], "html.parser").get_text(strip=True)
+
+    #print(BeautifulSoup(data["description"], "html.parser").get_text(strip=True))
+    vlun_type = data["cveTitle"]
     ### Massage to send to user
-    CVE_info = '''
-    漏洞编号：{}
-    漏洞来源：{}
-    漏洞NVD分数：{}
-    漏洞描述：
-    {}
-    受影响的软件版本：
-    {}
-    '''
+    CVE_info = f"""
+    CVE Number:{vlun_number}
+    --------------------------------
+    CVE Type:
+    {vlun_type}
+    --------------------------------
+    CVE Info:
+    {vlun_info}"""
     bot.send_message(message.chat.id, CVE_info)
 
 
 
-
+if __name__ == '__main__':
 #Use a while loop to slove Telegram server kick Bot in an hour
-bot.polling()
+    print("[*] Bot is running now...")
+    bot.polling()
