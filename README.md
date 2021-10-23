@@ -6,7 +6,7 @@
 
 使用pyTelegramBotApi制作。
 
-所有漏洞查询结果将来自微软应急响应中心[传送门](https://microsoft.com/msrc)
+所有漏洞查询结果将来自[微软应急响应中心](https://microsoft.com/msrc)
 
 # 使用方法
 ## 指令
