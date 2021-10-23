@@ -6,12 +6,12 @@
 
 使用[pyTelegramBotApi](https://github.com/eternnoir/pyTelegramBotAPI)制作。
 
+所有漏洞查询结果将来自[微软应急响应中心](https://microsoft.com/msrc)
+
 # 语言支持
 * 中文🇨🇳 (现已支持)
 * 俄语🇷🇺 (下一个版本)
 * 德语🇩🇪 (下一个版本)
-
-所有漏洞查询结果将来自[微软应急响应中心](https://microsoft.com/msrc)
 
 # 使用方法
 ## 指令
