@@ -4,9 +4,7 @@
 # 简介
 这是一个用于帮助你查找相关CVE漏洞的Telegram Bot。
 
-使用[pyTelegramBotApi](https://github.com/eternnoir/pyTelegramBotAPI)制作。
-
-所有漏洞查询结果将来自[微软应急响应中心](https://microsoft.com/msrc)
+使用[pyTelegramBotApi](https://github.com/eternnoir/pyTelegramBotAPI)制作，所有漏洞查询结果将来自[微软应急响应中心](https://microsoft.com/msrc)。
 
 # 语言支持
 * 中文🇨🇳 (现已支持)
