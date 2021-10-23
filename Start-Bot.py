@@ -44,22 +44,20 @@ def yourCommand(message):
 
     vlun_info = BeautifulSoup(data["description"], "html.parser").get_text(strip=True)
 
-    #print(BeautifulSoup(data["description"], "html.parser").get_text(strip=True))
     vlun_type = data["cveTitle"]
     ### Massage to send to user
     CVE_info = f"""
-    CVE漏洞编号:{vlun_number}
-    --------------------------------
-    CVE漏洞类型:
-    {vlun_type}
-    --------------------------------
-    CVE漏洞信息:
-    {vlun_info}"""
+    漏洞编号：{vlun_number}
+
+漏洞类型：
+{vlun_type}
+
+漏洞简介：
+{vlun_info}"""
     bot.send_message(message.chat.id, CVE_info)
 
 
 
 if __name__ == '__main__':
-#Use a while loop to slove Telegram server kick Bot in an hour
     print("[*] Bot is running now...")
     bot.polling()
