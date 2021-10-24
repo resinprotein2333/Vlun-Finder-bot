@@ -17,7 +17,7 @@ def extract_arg(arg):
 #Bot commands
 ## '/help' Command
 @bot.message_handler(commands=['help'])
-def send_help(message):
+def Send_help(message):
     help_info ='''使用说明：
     - CVE漏洞查询机器人，用于查询相关CVE漏洞信息和可利用的EXP
 
@@ -26,11 +26,6 @@ def send_help(message):
     /search [CVE ID]    
     /cvetoday                   '''
     bot.send_message(message.chat.id, help_info)
-
-## '/cvetoday' Command
-@bot.message_handler(commands=['cvetoday'])
-def post_new_cve_info(message):
-    bot.send_message(message.chat.id, 'please wait.....')
 
 ##'/search' Command
 @bot.message_handler(commands=['search'])
