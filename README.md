@@ -1,6 +1,6 @@
 # Vlun-Finder-bot
 
-<div align=center>![vlun_finder_bot](https://raw.githubusercontent.com/resinprotein2333/Vlun-Finder-bot/main/vlun_finder_bot_icon.png)
+![vlun_finder_bot icon](https://raw.githubusercontent.com/resinprotein2333/Vlun-Finder-bot/main/vlun_finder_bot_icon.png)
 
 ![](https://badgen.net/github/license/resinprotein2333/Vlun-Finder-bot) ![](https://badgen.net/github/stars/resinprotein2333/Vlun-Finder-bot)
 
