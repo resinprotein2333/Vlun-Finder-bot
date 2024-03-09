@@ -4,7 +4,7 @@
 
 
 <div align="center">
-<font size="10"> 
+<font size="50"> 
 <p>
 <b> Vlun-Finder-bot </b>
 </p>
